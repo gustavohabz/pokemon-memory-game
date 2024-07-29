@@ -115,15 +115,7 @@ function App() {
       <div className="container-fluid">
         <Title />
         {(gameWon ? <GameWonComponent setGameWon={setGameWon} /> : (<>
-          <div className="row pt-5">
-            <div className="col-md-6 col-lg-6 col-6 text-center">
-              <h4 className='pokemon-font' >Score: {score}</h4>
-            </div>
-            <div className="col-md-6 col-lg-6 col-6 text-center">
-              <h4 className='pokemon-font'>High Score: {highScore}</h4>
-            </div>
-          </div>
-          <div className="row pt-5 pb-5">
+          <div className="row pb-5">
             {loading ? loadingSpinner : 
               pokemonCardList.map((pokemon, index) => {
               return <PokemonCard 
@@ -133,6 +125,16 @@ function App() {
                     />
             })}
           </div>
+          <footer className="footer">
+            <div className="row">
+              <div className="col-md-6 col-lg-6 col-6 text-center">
+                <h4 className='pokemon-font' >Score: {score}</h4>
+              </div>
+              <div className="col-md-6 col-lg-6 col-6 text-center">
+                <h4 className='pokemon-font'>High Score: {highScore}</h4>
+              </div>
+            </div>
+          </footer>
         </>))}
       </div>
     </>
