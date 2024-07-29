@@ -26,10 +26,6 @@ function App() {
     }
   }
 
-  const getRandomInt = (max) => {
-    return Math.floor(Math.random() * max)
-  }
-
   const populatePokemonCardList = async () => {
     const pokemonArray = []
       setLoading(true)
@@ -45,12 +41,6 @@ function App() {
     }
     shufflePokemonsMount(pokemonArray)
     setLoading(false)
-  }
-
-  const checkPokemonIsSelected = (pokemon) => {
-    if (typeof pokemon != 'undefined'){
-      return selectedPokemons.includes(pokemon.name)
-    }
   }
 
   const shufflePokemons = () => {
@@ -117,7 +107,7 @@ function App() {
         {(gameWon ? <GameWonComponent setGameWon={setGameWon} /> : (<>
           <div className="row pb-5">
             {loading ? loadingSpinner : 
-              pokemonCardList.map((pokemon, index) => {
+              pokemonCardList.map((pokemon) => {
               return <PokemonCard 
                       key={pokemon.id}
                       pokemon={pokemon}
